@@ -6,12 +6,23 @@
 
 ### 核心功能
 - **質體資料庫**：基於 SQLite 的質體儲存，包含完整的元數據
+- **專業向量編輯器**：整合 TeselaGen OVE，提供企業級序列編輯功能
+- **視覺化工具**：環形和線性質體圖，互動式序列地圖
 - **資料夾管理系統**：拖放式質體組織，支援自定義分類
 - **虛擬 All Plasmid 資料夾**：統一檢視所有已匯入的質體
 - **T2S 酶位點檢測**：自動檢測 BsaI, BbsI, BsmBI, 和 Esp3I 位點
 - **突出端分析**：計算和驗證 Golden Gate 組裝的 4-bp 突出端
 - **插入片段提取**：識別並提取 T2S 位點間的插入區域
 - **MoClo 相容性**：檢查質體是否符合 MoClo 標準
+
+### 🧬 向量編輯器功能 (TeselaGen OVE)
+- **環形視圖**：專業的環形質體地圖，清楚顯示特徵分佈
+- **線性視圖**：詳細的線性序列圖，支援多層次註釋
+- **序列編輯**：直接編輯 DNA 序列，即時驗證
+- **特徵管理**：添加、編輯、刪除基因特徵
+- **限制性分析**：全面的限制酶位點分析
+- **ORF 檢測**：開放閱讀框架自動識別
+- **格式支援**：GenBank, FASTA, SBOL 等格式導入/導出
 
 ### 分析工具
 - 多酶掃描整個質體序列
@@ -107,6 +118,7 @@ src/
 │   │   ├── FolderSidebar.tsx     # 資料夾側邊欄
 │   │   ├── PlasmidList.tsx       # 質體列表
 │   │   ├── PlasmidDetails.tsx    # 質體詳細信息
+│   │   ├── VectorEditor.tsx      # TeselaGen OVE 向量編輯器
 │   │   └── GoldenGateDesigner.tsx # Golden Gate 設計器
 │   └── styles.css        # 全局樣式
 ├── preload/              # Preload 腳本
@@ -114,6 +126,32 @@ src/
 └── types/                # TypeScript 類型定義
     ├── index.ts          # 主要類型
     └── api.ts            # API 類型
+```
+
+## 🛠️ 技術架構
+
+### 前端技術棧
+- **React 18** + **TypeScript**：現代化的組件開發
+- **TeselaGen OVE**：企業級向量編輯器核心
+- **Redux**：狀態管理 (OVE 必需)
+- **Blueprint.js**：專業的 UI 組件庫
+- **Electron**：跨平台桌面應用框架
+
+### 後端技術
+- **Node.js**：運行環境
+- **SQLite3**：輕量級關係型資料庫
+- **生物信息學庫**：序列分析和格式轉換
+
+### 關鍵依賴
+```json
+{
+  "@teselagen/ove": "^0.7.36",           // 向量編輯器核心
+  "@teselagen/bio-parsers": "^0.4.28",   // 生物格式解析
+  "@teselagen/sequence-utils": "^0.3.32", // 序列處理工具
+  "@blueprintjs/core": "^3.54.0",        // UI 組件
+  "redux": "^4.2.1",                     // 狀態管理
+  "react-redux": "^8.1.3"                // React-Redux 綁定
+}
 ```
 
 ## 🔧 新功能亮點 (v1.0.0)
