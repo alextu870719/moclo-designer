@@ -18,7 +18,14 @@
     "sqlite3": "^5.1.7",
     "react": "^18",
     "react-dom": "^18",
-    "lucide-react": "^0.263.1"
+    "lucide-react": "^0.263.1",
+    "@teselagen/ove": "^0.7.36",
+    "@teselagen/bio-parsers": "^0.4.28",
+    "@teselagen/sequence-utils": "^0.3.32",
+    "redux": "^4.2.1",
+    "react-redux": "^8.1.3",
+    "@blueprintjs/core": "^3.54.0",
+    "@blueprintjs/icons": "^3.33.0"
   },
   "devDependencies": {
     "typescript": "^5",

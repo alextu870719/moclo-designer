@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import type { Plasmid, T2SSite } from '../../types';
+import VectorEditor from './VectorEditor';
 import '../../types/api';
 
 interface Props {
@@ -145,6 +146,22 @@ export const PlasmidDetails: React.FC<Props> = ({ plasmid, onPlasmidUpdate, onDe
             </div>
           </div>
         )}
+      </div>
+
+      {/* Vector Editor */}
+      <div className="detail-section">
+        <h3>Vector Editor</h3>
+        <VectorEditor 
+          plasmid={currentPlasmid}
+          onSequenceChange={(updatedData) => {
+            const updatedPlasmid = { ...currentPlasmid, ...updatedData };
+            setCurrentPlasmid(updatedPlasmid);
+            if (onPlasmidUpdate) {
+              onPlasmidUpdate(updatedPlasmid);
+            }
+          }}
+          height="500px"
+        />
       </div>
 
       {/* T2S Sites */}
